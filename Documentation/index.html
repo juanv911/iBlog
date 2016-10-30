@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>iBlog Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;iBlog&rdquo; Documentation by &ldquo;Juan Vargas&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;iBlog&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 5/26/2015<br>
+					By: Juan Vargas<br>
+					Email: <a href="mailto:791171@gmail.com">791171@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for downloading my theme. If you have any questions relating to the theme, send me an email Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#preview">Preview</a></li>
+			<li><a href="#install">Installation</a></li>
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#api">APIs</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+		
+		<hr>
+		<h3 id="preview"><strong>A) Preview</strong> - <a href="#toc">top</a></h3>
+		<img src="assets/images/preview.png" alt="Preview />
+		<br>
+		<hr>
+		<h3 id="install"><strong>A) Installation</strong> - <a href="#toc">top</a></h3>
+		<ol>
+		<li>Unzip iblog.zip</li>
+		<li>Inside the folder iblog there is a folder called theme, inside that folder you will find a file called "index.html".</li>
+		<li>Open index.html with a text editor like Notepad++,Wordpad, regular notepad sometimes display the content unorganized.</li>
+		<li>Go to the Tumblr dashboard, click on the Account icon, then click on your blog name. Once you have done that, a sidebar will appear with a link called "Edit appereance". When you click that button, it will take you to your blog options. Click on the "Edit theme" button, then click on "Edit HTML". Finally, replace everything inside that input with the code from the "index.html" from the unzipped folder.</li>
+		</ol>
+		<hr>
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>This theme has a responsive layout with two possible columns, in the theme editor area you can choose to display the sidebar or not. The content of the website is located inside the class ".posts_container". The container holds two columns, the posts columns in left and the sidebar column in the right. You can also enable image sliders, there's a full width slider and a boxed slider. The full width slider doesn't change even if the sidebar is not being displayed. The boxed slider changes sizes if the sidebar is not being displayed. If the sidebar is not being displayed, it will have a single column layout and the menu will get smaller to be aligned with the content. The sidebar can hold up to 6 boxes. The photos in the sidebar are retrieved using 4 different APIs, two of them require an API key or an API access token. I will explain how to get this keys in the next section.</p>
+		
+		<img src="assets/images/html.png" alt="HTML Structure" />
+		<hr>
+
+
+		<h3 id="api"><strong>B) APIs</strong> - <a href="#toc">top</a></h3>
+		<p>To be able to display your Instagram photos and your Dribbble shots you will need to get an access tokens for each one. An access token is required because the information you are trying to display is not public, with this access token you can displays anyone's photos as long as they are not private or if they are linked to your account.</p>
+		<h4><strong>Instagram API</strong></h4>
+		<p>There's a YouTube that explains how to get an access token.</p>
+		<h3><a href="https://www.youtube.com/watch?v=LkuJtIcXR68">https://www.youtube.com/watch?v=LkuJtIcXR68</a></h3>
+		<ol>
+		<li>First step, click <a href="https://instagram.com/developer/clients/register/">here</a> and fill in all in the input fields. Click on the Security Tab and uncheck "Disable implicit OAuth". Once that is done you will see information of the Application you just created, if not click <a href="https://instagram.com/developer/clients/manage/">here</a>.There you will se a list of items, copy the string of numbers and letter that appear next to "CLIENT ID". Also you need the REDIRECT URI, when you register and application you are required to put your domain url.</li> 
+		<li>We are going to use following url: <pre>https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=token</pre>Now we are going to replace the the word "CLIENT-ID" with the string from the previous step. For example, I just created an application and this is my CLIENT ID: b12baa4c848940f48e6e368141adede8. Also, replace REDIRECT-URI with the URL that appears in the application you just created.</li>
+		<li><pre>https://api.instagram.com/oauth/authorize/?client_id=b12baa4c848940f48e6e368141adede8&redirect_uri=http://localhost&response_type=token</pre></li>
+		<li>Now, just copy the url with the CLIENT ID and REDIRECT-URI in it and paste in the browser address bar and hit enter. CLick on the Authorize button. Then you will be redirrected to the domain you used to created the application, once it takes you there look at the address bar and you will see something like this: <pre>http://localhost/#access_token=1466232857.b12baa4.672d224444a548c691f0651ee1269998</pre></li>
+		<li>Your access token is: 1466232857.b12baa4.672d224444a548c691f0651ee1269998 Now just copy that code into the "Instagram AccessToken" input in the tumblr theme editor. Don't use this access token, I will delete it and it won't work. You should generate your own access token.</li>
+		<li><img src="assets/images/insta.png" alt="Instagram API" /></li>
+		</ol>
+		
+		<h4><strong>Dribbble API</strong></h4>
+		<p>With the Dribbble API you can display your own shots as well as anyone else's shots. Getting a Dribbble Access Token is alot simpler, just go to <a href="https://dribbble.com/account/applications/new">this link</a> and fill the input fields. Once you complete the registration, information about you application will be displayed. Just copy the string of numbers and letters bellow "Client Access Token".</p>
+		
+		<h4><strong>Flickr API</strong></h4>
+		<p>For the Flickr API, you don't need anything else than just you Flickr ID</p>
+
+		<h4><strong>Pinterest API</strong></h4>
+		<p>To display you Pinterest pins you will need to include two things, your Pinterest username and the board that you want to display.</p>
+		<h4><strong>Items in each API</strong></h4>
+		<p>The default value of items to display in each carousel slider is one, you can change that limit in the theme editor section. Don't include a limit greater than the items in your account, for example if you have two Intagram Photos and you set the limit to 5, it will most likely display the items in a messy way.</p>
+		<hr>
+		
+
+		
+
+		
+		<h3 id="credits"><strong>E) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've used the following images, icons or other files as listed.
+		
+		<ul>
+			<li><a href="https://jquery.com/">jQuery</a></li>
+			<li><a href="http://fitvidsjs.com/">FitVidsJs</a></li>
+			<li><a href="http://www.infinite-scroll.com/">Infinite Scrolling</a></li>
+			<li><a href="http://owlgraphic.com/owlcarousel/">Owl Carousel</a></li>
+			<li><a href="https://github.com/PixelUnion/Extended-Tumblr-Photoset">Pixel Union - Extended Photoset</a></li>
+			<li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+		</ul>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for downloading this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist.</p> 
+		
+		<p class="append-bottom alt large"><strong>Juan Vargas</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
