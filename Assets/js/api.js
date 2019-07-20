@@ -3,21 +3,11 @@
 $.fn.instagram = function(options) {
     var settings = $.extend({
         // These are the defaults.
-        username: '',
-        clientID: '',
         accessToken: '',
 	limit:1,
     }, options);
-
-    $.ajax({
-        url: 'https://api.instagram.com/v1/users/search?q=' + settings.username,
-        dataType: 'jsonp',
-        type: 'GET',
-        data: {access_token: settings.accessToken},
-        success: function(data) {
-            var ID = data.data[0].id;
             $.ajax({
-                url: "https://api.instagram.com/v1/users/" + ID + "/media/recent",
+                url: "https://api.instagram.com/v1/users/self/media/recent/",
                 dataType: 'jsonp',
                 type: 'GET',
                 data: {access_token: settings.accessToken },
@@ -43,8 +33,7 @@ $.fn.instagram = function(options) {
                     //End Owl Carousel           
                 }
             });
-        }
-    });
+
 };
 }( jQuery ));
 //End Instagram API
@@ -98,13 +87,12 @@ $.ajax({
 $.fn.dribbble = function(options) {
     var settings = $.extend({
         // These are the defaults.
-        username: '',
         accessToken: '',
 	limit:1,
     }, options);
 
 $.ajax({
-    url: 'https://api.dribbble.com/v1/users/'+settings.username+'/shots?access_token='+settings.accessToken,
+    url: 'https://api.dribbble.com/v2/user/shots?access_token='+settings.accessToken,
     dataType: 'json',
     type: 'GET',
     success: function(data) {  
