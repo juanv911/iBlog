@@ -3,7 +3,7 @@
 <!--
 Author: Juan Vargas
 Theme: iBlog
-Version: 1.0
+Version: 1.1
 -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -65,7 +65,7 @@ html, body {
 	height: 100%;
 }
 body {
-    background:#f5f5f5;
+    background:#f3f3f3;
     margin: 0;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Open Sans', 'Arial', 'sans-serif';
 -webkit-font-smoothing: antialiased;
@@ -99,7 +99,7 @@ blockquote a{color:#38A4E3;}
 	height:80px;
     z-index: 200;
     position: relative;
-    background-color: #0099cc;
+    background-image: linear-gradient(-20deg, rgba(0, 153, 204, 0.75), rgba(0, 153, 204, 1));
 }
 .top_nav_container {
 	width:980px;
@@ -194,7 +194,7 @@ blockquote a{color:#38A4E3;}
     height:59px;
 }
 .menu ul span a {
-    color: #888;
+    color: #777;
     text-decoration: none;
     display: block;
     line-height: 60px;
@@ -218,7 +218,7 @@ blockquote a{color:#38A4E3;}
     background: #fff;
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
-    color: #999;
+    color: #777;
     border-radius:2px;
 }
 .menu ul span a.custom div:hover{background:#f9f9f9;color:#555;}
@@ -527,7 +527,7 @@ input[type=submit],button {
     list-style-type: circle;
 }
 .post h2 {
-	line-height: 28px;
+	line-height: 30px;
     margin-top: 12px;
 }
 
@@ -643,19 +643,21 @@ h2.text_title {margin-bottom: 10px;}
     margin-top:10px!important;
 }
 .read_more a{
-    border:solid 1px #38A4E3;
+    border: solid 1px #38A4E3;
     color: #38A4E3;
-    padding: 5px 12px;
+    padding: 5px 14px;
     font-weight: normal;
     display: inline-block;
-    border-radius: 3px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 10px;
 }
 .read_more a:hover{
     background: #2688C2;
     color: #fff;
 }
 .post img.main_photo {max-width: 100%;}
-.post.photo img,.post.text img  {max-width: 100%;display:block;}
+.post.photo img,.post.text img  {max-width: 100%;height:auto;display:block;}
 {block:IndexPage}
 {/block:IndexPage}
 .post .photo img {
@@ -860,7 +862,6 @@ div.video img {width:100%;}
     border-radius:3px;
     max-width:100%;
 }
-
 .asker {
     font-weight: 600;
     color: #444;
@@ -2245,7 +2246,7 @@ div.owl-wrapper-outer.autoHeight {
     <div class="posts">  
 
 
-    	{block:Posts}
+{block:Posts inlineMediaWidth="1280"}
     	
         <div class="post {PostType} {block:IfInfiniteScroll} load {/block:IfInfiniteScroll}  {TagsAsClasses}" id="{PostID}">
         
@@ -2259,7 +2260,8 @@ div.owl-wrapper-outer.autoHeight {
 </div>
 {/block:Submission}
 
-{block:Text}{block:Title}
+{block:Text}
+{block:Title}
 <a href="{Permalink}"><h2 class="text_title">{Title}</h2></a>
 {/block:Title}
 {Body}{block:More}
@@ -2754,7 +2756,10 @@ var getFacebookCount = function() {
     });
 };
 getFacebookCount();
+
 {/block:PermalinkPage}
+
+
 {block:IfTumblrUsername}
 //Tag Cloud
 $(document).ready(function() {
@@ -2881,5 +2886,3 @@ $(document).ready(function() {
 </script>
 {/block:IfSidebar}
 {/block:IndexPage}
-
-
